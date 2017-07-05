@@ -58,7 +58,9 @@ public class SpringBootFacesApplication extends SpringBootServletInitializer {
             @Override
             public void onStartup(ServletContext sc) throws ServletException {
                 sc.setInitParameter(Constants.ContextParams.THEME, "bootstrap");
+                sc.setInitParameter(Constants.ContextParams.MOBILE_THEME, "bootstrap");
                 sc.setInitParameter(Constants.ContextParams.FONT_AWESOME, "true");
+                //sc.setInitParameter(Constants.ContextParams., "true");
                 sc.setInitParameter(ProjectStage.PROJECT_STAGE_PARAM_NAME, ProjectStage.Development.name());
             }
 	    };
@@ -86,6 +88,7 @@ public class SpringBootFacesApplication extends SpringBootServletInitializer {
                 context.addMimeMapping("eot", "application/vnd.ms-fontobject");
                 context.addMimeMapping("ttf", "application/x-font-ttf");
                 context.addMimeMapping("woff", "application/x-font-woff");
+                context.addMimeMapping("woff2", "application/x-font-woff2");
             }
         });
         

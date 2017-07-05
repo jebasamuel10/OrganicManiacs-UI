@@ -1,70 +1,46 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<f:view contentType="text/html"
-	xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:ui="http://java.sun.com/jsf/facelets" 
-	xmlns:h="http://java.sun.com/jsf/html" 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:p="http://primefaces.org/ui">
-<html>
-
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
 <h:head>
-  
-  <!-- For Bootstrap responsive grid -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-  
 </h:head>
-
 <h:body>
-
-<h:form id="form">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <p:messages globalOnly="true" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <p:panel header="Form" styleClass="form-horizontal">
-          <div class="form-group">
-            <p:outputLabel value="Field value" for="field" styleClass="col-sm-3 control-label" />
-            <div class="col-sm-9">
-              <p:inputText id="field" value="#{formBean.field}" pt:placeholder="Input a value" required="true">
-                <f:validateLength minimum="2" />
-              </p:inputText>
-              <p:messages for="field" />
-            </div>
-          </div>
+	<pm:page id="main">
+ <h:form>
+    <p:menubar>
+        <p:submenu label="Products" icon="ui-icon-document">
+            <p:submenu label="Millets" icon="ui-icon-contact">
+                <p:menuitem value="Millet 1" url="#" />
+                <p:menuitem value="Millet 2" url="#" />
+            </p:submenu>
+            <p:menuitem value="Rice" url="#" />
+            <p:separator />
+            <p:menuitem value="category 3" url="#" />
+        </p:submenu>
         
-          <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-              <p:commandButton value="Submit" action="#{formController.submit}" ajax="false"
-                  icon="fa fa-save" />
-              <p:commandButton value="Reset (Ajax)" actionListener="#{formController.reset}" update="@form"
-                  icon="fa fa-trash" immediate="true" />
-              <p:button value="Go to home" outcome="/index" 
-                  icon="fa fa-home" />
-            </div>
-          </div>          
-          
-        </p:panel>
-      </div>
-      
-      <div class="col-md-6">
-        <p:panel header="Submitted values saved in view scope">
-          <p:dataList value="#{formBean.submittedValues}" var="value" type="ordered">
-            #{value}
-          </p:dataList>
-        </p:panel>
-      </div>
-      
-    </div>
-  </div>
-
-</h:form>
+        <p:submenu label="Help" icon="ui-icon-help">
+            <p:menuitem value="Contents" url="#" />
+            <p:submenu label="Search" icon="ui-icon-search">
+                <p:submenu label="Text">
+                    <p:menuitem value="Workspace" url="#" />
+                </p:submenu>
+                <p:menuitem value="File" url="#" />
+            </p:submenu>
+        </p:submenu>
+ 	
+        <p:submenu label="Settings" icon="ui-icon-gear">
+            <p:submenu label="Ajax" icon="ui-icon-refresh">
+                <p:menuitem value="Privacy"  icon="ui-icon-disk" />
+                <p:menuitem value="Update" icon="ui-icon-disk"/>
+            </p:submenu>
+        </p:submenu>
+ 
+        <p:menuitem value="Logout" url="http://www.primefaces.org" icon="ui-icon-close" class ="pull-right"/>
+ 
+    </p:menubar>
+    </h:form>
+	</pm:page>
 </h:body>
-
 </html>
-</f:view>
